@@ -1,3 +1,4 @@
 data.db
 Variables.virtualenv
 __pycache__/
+*.pyc
