@@ -2,7 +2,7 @@ from flask_jwt import JWT, jwt_required
 from flask_restful import Resource, reqparse
 import sqlite3
 from flask import jsonify
-from code.models.item import ItemModel
+from models.item import ItemModel
 class Item(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument(
