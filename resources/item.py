@@ -2,7 +2,7 @@ from flask_jwt import JWT, jwt_required
 from flask_restful import Resource, reqparse
 import sqlite3
 from flask import jsonify
-from models.item import ItemModel
+from code.models.item import ItemModel
 class Item(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument(
@@ -64,9 +64,4 @@ class Item(Resource):
 
 class ItemList(Resource):
     def get(self):
-        item_list=ItemModel.query.all()
-        items=[]
-        for item in item_list:
-            items.append(item.json())
-
-        return {'items':items}
+        return {'items':[item.json() for item in ItemModel.find_all()]}
